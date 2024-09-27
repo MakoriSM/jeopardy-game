@@ -4,6 +4,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Category, Team, Question } from '@/lib/types'
 import { useState } from 'react';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
+import { Textarea } from '@/components/ui/textarea'
 
 interface JeopardySetupProps {
   categories: Category[];
@@ -266,18 +267,24 @@ export function JeopardySetup({
                     <DialogTitle>Edit Question</DialogTitle>
                   </DialogHeader>
                   <div className="space-y-4">
-                    <Input
+                    <label htmlFor={`question-${categoryIndex}-${questionIndex}`} className="block text-sm font-medium mb-1">Question</label>
+                    <Textarea
+                      id={`question-${categoryIndex}-${questionIndex}`}
                       value={question.question}
                       onChange={(e) => updateQuestion(categoryIndex, questionIndex, 'question', e.target.value)}
                       placeholder="Question"
-                      className="bg-blue-800 text-white"
+                      className="bg-blue-800 text-white h-32 resize-none"
                     />
-                    <Input
+                  <div>
+                    <label htmlFor={`answer-${categoryIndex}-${questionIndex}`} className="block text-sm font-medium mb-1">Answer</label>
+                    <Textarea
+                      id={`answer-${categoryIndex}-${questionIndex}`}
                       value={question.answer}
                       onChange={(e) => updateQuestion(categoryIndex, questionIndex, 'answer', e.target.value)}
                       placeholder="Answer"
-                      className="bg-blue-800 text-white"
+                      className="bg-blue-800 text-white h-32 resize-none"
                     />
+                  </div>
                     <Input
                       type="number"
                       value={question.points}
