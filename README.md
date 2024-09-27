@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jeopardy Game Application
 
-## Getting Started
+## Overview
+This is a Next.js application that implements a Jeopardy-style game. The application allows users to set up and play a customizable Jeopardy game, complete with categories, questions, and team scoring.
 
-First, run the development server:
+## Key Components
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### JeopardyGame (src/components/jeopardy/JeopardyGame.tsx)
+The main component that orchestrates the game. It manages the overall state of the game, including categories, questions, teams, and game mode (setup or play).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### JeopardyBoard (src/components/jeopardy/JeopardyBoard.tsx)
+Renders the game board with categories and questions. It displays the point values for each question and handles question selection.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### JeopardyQuestion (src/components/jeopardy/JeopardyQuestion.tsx)
+Displays the current question and answer, and handles scoring when a team answers correctly.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### JeopardySetup (src/components/jeopardy/JeopardySetup.tsx)
+Provides an interface for setting up the game, including adding/editing categories and questions, managing teams, and importing/exporting questions.
 
-## Learn More
+### JeopardyTeam (src/components/jeopardy/JeopardyTeam.tsx)
+Displays team information and score, with controls to adjust scores manually.
 
-To learn more about Next.js, take a look at the following resources:
+## Key Features
+- Customizable categories and questions
+- Team management and scoring
+- Import/export functionality for questions
+- Responsive design for various screen sizes
+- Setup and play modes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technical Implementation
+- Built with Next.js and React
+- Uses TypeScript for type safety
+- Styling with Tailwind CSS
+- Custom UI components (buttons, inputs, dialogs) for consistent design
+- State management using React hooks (useState, useEffect)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## How to Use
+1. Start in Setup Mode to configure categories, questions, and teams
+2. Use the "Switch to Play Mode" button to begin the game
+3. Select questions from the board to reveal them
+4. Use the scoring buttons to award points to teams
+5. Manual score adjustments can be made using team controls
 
-## Deploy on Vercel
+## Data Structure
+- Categories: Array of objects containing name and questions
+- Questions: Objects with question text, answer, point value, and completion status
+- Teams: Array of objects with team name and score
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Future Enhancements
+- Add sound effects and animations
+- Implement a timer for questions
+- Create a multi-round game structure
+- Add support for "Daily Double" style questions
+- Implement user accounts and save game progress
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This Jeopardy game application provides a flexible and interactive platform for hosting trivia games, suitable for educational or entertainment purposes.
